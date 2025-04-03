@@ -1,0 +1,24 @@
+# Carpetas y archivos generados por NetBeans
+nbproject/private/
+build/
+dist/
+nbbuild/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+# Archivos de compilación
+*.class
+*.jar
+*.war
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Configuraciones del IDE
+*.iml
+*.ipr
+*.iws
+.idea/
+
