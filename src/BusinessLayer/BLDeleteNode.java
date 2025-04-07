@@ -5,9 +5,15 @@ import javax.swing.JOptionPane;
 public class BLDeleteNode {
     
     private BinaryTree binaryTree= BLInsertNode.getSharedBinaryTree();
-    private Node root = binaryTree.getRoot();
+    private BinaryTree tree;
+    
+    public BLDeleteNode(BinaryTree binaryTree) {
+        this.tree = binaryTree;
+    }
     public void delete(int id) {
-        binaryTree.setRoot(deleteNode(root, id));
+         System.out.println(tree.getRoot());
+        binaryTree.setRoot(deleteNode(tree.getRoot(), id));
+        System.out.println(tree.getRoot());
     }
     
     private Node deleteNode(Node currentNode, int id) {
@@ -15,9 +21,9 @@ public class BLDeleteNode {
         if(currentNode == null) return null;
         
         if(id < currentNode.getMedicine().getID()){
-            currentNode.setLeftNode(deleteNode(currentNode, id));
+            currentNode.setLeftNode(deleteNode(currentNode.getLeftNode(), id));
         }else if(id > currentNode.getMedicine().getID()) {
-            currentNode.setRightNode(deleteNode(currentNode, id));
+            currentNode.setRightNode(deleteNode(currentNode.getRightNode(), id));
         }else {
             if(currentNode.getLeftNode() == null && currentNode.getRightNode()  == null) {
                 return null;
@@ -25,7 +31,7 @@ public class BLDeleteNode {
                 return currentNode.getRightNode();
             }else if(currentNode.getLeftNode() != null && currentNode.getRightNode() == null) {
                 JOptionPane.showMessageDialog(null, "Error: You can't delete this node because it only has a left subtree", "Error", JOptionPane.ERROR_MESSAGE);
-                return currentNode;
+                return currentNode.getLeftNode();
             }else if(currentNode.getRightNode() != null && currentNode.getLeftNode() != null){
                 JOptionPane.showMessageDialog(null, "Error: You can't delete this node because it has both left and right children", "Error", JOptionPane.ERROR_MESSAGE);
                 return currentNode;
@@ -33,5 +39,4 @@ public class BLDeleteNode {
         }
         return currentNode;
     }
-    
 }

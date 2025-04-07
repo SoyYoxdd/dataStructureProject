@@ -14,7 +14,7 @@ public class BLInsertNode {
             return;
         }
         binaryTree.setRoot(insertNode(binaryTree.getRoot(), medicine));
-        System.out.println("asd");
+       // System.out.println("asd");
     }
 
     private Node insertNode(Node current, Medicine medicine) {
