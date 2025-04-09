@@ -4,7 +4,7 @@ public class Medicine {
     private int ID;
     private String name;
     private double price;
-    private int amount;
+    private int numberOfMedicine;
 
     public Medicine() {
     }
@@ -34,11 +34,18 @@ public class Medicine {
     }
 
     public int getAmount() {
-        return amount;
+        return numberOfMedicine;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public void setAmount(int numberOfMedicine) {
+        this.numberOfMedicine = numberOfMedicine;
     }
+
+    @Override
+    public String toString() {
+        return "Medicine" + "\nID: " + ID + "\nName: " + name + "\nPrice: " + price + "\nQuantity: " + numberOfMedicine ;
+    }
+    
+    
     
 }

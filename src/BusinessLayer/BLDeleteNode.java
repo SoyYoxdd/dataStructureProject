@@ -11,14 +11,15 @@ public class BLDeleteNode {
         this.tree = binaryTree;
     }
     public void delete(int id) {
-         System.out.println(tree.getRoot());
         binaryTree.setRoot(deleteNode(tree.getRoot(), id));
-        System.out.println(tree.getRoot());
     }
     
     private Node deleteNode(Node currentNode, int id) {
         
-        if(currentNode == null) return null;
+        if(currentNode == null) {
+            JOptionPane.showMessageDialog(null, "Error: The ID you entered is not in the tree", "Error", JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
         
         if(id < currentNode.getMedicine().getID()){
             currentNode.setLeftNode(deleteNode(currentNode.getLeftNode(), id));
@@ -31,7 +32,7 @@ public class BLDeleteNode {
                 return currentNode.getRightNode();
             }else if(currentNode.getLeftNode() != null && currentNode.getRightNode() == null) {
                 JOptionPane.showMessageDialog(null, "Error: You can't delete this node because it only has a left subtree", "Error", JOptionPane.ERROR_MESSAGE);
-                return currentNode.getLeftNode();
+              //  return currentNode.getLeftNode();
             }else if(currentNode.getRightNode() != null && currentNode.getLeftNode() != null){
                 JOptionPane.showMessageDialog(null, "Error: You can't delete this node because it has both left and right children", "Error", JOptionPane.ERROR_MESSAGE);
                 return currentNode;
